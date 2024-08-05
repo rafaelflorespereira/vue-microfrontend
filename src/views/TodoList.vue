@@ -13,10 +13,9 @@
 </template>
 <script setup lang="ts">
 import { ref, computed } from 'vue'
-import TodoComponent from '@/components/TodoComponent.vue'
-import CreateTodo from '@/components/CreateTodo.vue'
+import type { ITodo } from '@/interface'
 
-const todos = ref([
+const todos = ref<ITodo[]>([
   {
     id: 1,
     title: 'Learn Vue 3',
@@ -33,14 +32,14 @@ const highestTodoId = computed(() => {
     return todo.id > acc ? todo.id : acc
   }, 0)
 })
-const addTodo = (todo) => {
+const addTodo = (todo: ITodo) => {
   todos.value.push(todo)
   console.log('clicked')
 }
-const deleteTodo = (id) => {
+const deleteTodo = (id: number) => {
   todos.value = todos.value.filter((todo) => todo.id !== id)
 }
-const updateTodo = (id) => {
+const updateTodo = (id: number) => {
   todos.value = todos.value.map((todo) => {
     if (todo.id === id) {
       return {
@@ -51,7 +50,7 @@ const updateTodo = (id) => {
     return todo
   })
 }
-const updateTodoTitle = (id, title) => {
+const updateTodoTitle = (id: number, title: string) => {
   todos.value = todos.value.map((todo) => {
     if (todo.id === id) {
       return {

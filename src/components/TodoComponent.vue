@@ -21,15 +21,22 @@ const props = defineProps({
   title: String,
   isDone: Boolean
 })
-const emit = defineEmits(['emitDeleteTodo, updateTodo, updateTodoTitle'])
+const emit = defineEmits<{
+  deleteTodo: [id: number]
+  updateTodo: [id: number]
+  updateTodoTitle: [id: number, value: string]
+}>()
 const emitDeleteTodo = () => {
+  if (!props.id) return
   emit('deleteTodo', props.id)
 }
 const updateTodo = () => {
+  if (!props.id) return
   emit('updateTodo', props.id)
 }
-const updateTodoTitle = (e) => {
-  emit('updateTodoTitle', props.id, e.target.value)
+const updateTodoTitle = (e: Event) => {
+  if (!props.id) return
+  emit('updateTodoTitle', props.id, (e.target as HTMLInputElement).value ?? '')
 }
 </script>
 <style lang="scss">
