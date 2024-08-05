@@ -1,5 +1,5 @@
 {
-  "name": "-vue-todolist-poc",
+  "name": "-todo-list-remote",
   "version": "0.0.0",
   "private": true,
   "type": "module",
@@ -24,6 +24,7 @@
     "@types/jsdom": "^21.1.7",
     "@types/node": "^20.14.5",
     "@vitejs/plugin-vue": "^5.0.5",
+    "@vitejs/plugin-vue-jsx": "^4.0.0",
     "@vue/eslint-config-prettier": "^9.0.0",
     "@vue/eslint-config-typescript": "^13.0.0",
     "@vue/test-utils": "^2.4.6",
@@ -33,10 +34,8 @@
     "jsdom": "^24.1.0",
     "npm-run-all2": "^6.2.0",
     "prettier": "^3.2.5",
-    "sass": "^1.77.8",
     "typescript": "~5.4.0",
     "vite": "^5.3.1",
-    "vite-plugin-vue-devtools": "^7.3.1",
     "vitest": "^1.6.0",
     "vue-tsc": "^2.0.21"
   }
