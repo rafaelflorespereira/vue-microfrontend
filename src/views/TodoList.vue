@@ -1,5 +1,6 @@
 <template lang="">
   <CreateTodo @addTodo="addTodo" :highestTodoId />
+  <HelloWorld />
   <TodoComponent
     v-for="todo in todos"
     :title="todo.title"
@@ -13,6 +14,7 @@
 </template>
 <script setup lang="ts">
 import { ref, computed } from 'vue'
+import HelloWorld from 'todo-list-remote/HelloWorld'
 import type { ITodo } from '@/interface'
 
 const todos = ref<ITodo[]>([
